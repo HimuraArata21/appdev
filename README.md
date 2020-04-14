@@ -38,20 +38,13 @@ Table of Contents
 	In this case, so far, the list many look this:
 
 	README.md:		this file
-
 	screen.c:		contains screen manipulation functions
-
 	screen.h:		contains screen function declarations and related constants
-
-	testscreen.c	contains main function
-
-	makefile		compiles the program
-
-	comm.c			contains client-sever communication functions
-
-	comm.h			contains comm function declarations and related constants
-
-	testcurl.c		testes communication functions
+	testscreen.c:	contains main function
+	makefile:		compiles the program
+	comm.c:			contains client-sever communication functions
+	comm.h:			contains comm function declarations and related constants
+	testcurl.c:		test communication functions
 
 5. Copyright and licensing information
 	This application follows GPLv2 license
