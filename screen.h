@@ -34,3 +34,4 @@ void setcursor(int, int);
 void drawbar(int, int);
 void drawrect(int, int, int, int);
 Position getscreensize(void);
+int devicestatus(void);

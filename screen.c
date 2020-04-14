@@ -6,6 +6,15 @@
 #include "screen.h"
 
 //function defination
+int devicestatus(void)	{
+	printf("%c[5n", ESC);
+	char status[40];
+	scanf("%s", status);
+	int ret;
+	char dum;
+	scanf(status, "%c%c%d%C", &dum, &dum, &ret, &dum);
+	return ret;
+}
 void setfgcolor(int fg)	{
 	printf("%c[1;%dm", ESC, fg);
 }
