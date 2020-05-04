@@ -17,6 +17,7 @@ Table of Contents
 6. Contact information
 7. Credits and acknowledgements
 
+
 1. Configuration instructions
 
 	In this section you need to tell the user how to configure the system(s)
@@ -37,6 +38,7 @@ Table of Contents
 	In this section you need to offer a list of files included in this application.
 	In this case, so far, the list many look this:
 
+
 	README.md:		this file
 	screen.c:		contains screen manipulation functions
 	screen.h:		contains screen.c function declarations and related constants
@@ -48,6 +50,7 @@ Table of Contents
 	sound.c:		contains manipulation functions for .wav file
 	sound.h:		contains sound.c function declarations and related constants
 	test.php:		contains php functions
+
 
 5. Copyright and licensing information
 	This application follows GPLv2 license
