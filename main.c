@@ -4,6 +4,8 @@
 #include "comm.h"
 #include "sound.h"
 
+//main function
+
 int main(void)	{
 	FILE *fp;
 	fp = fopen("test.wav", "r");

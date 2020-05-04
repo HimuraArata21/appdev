@@ -39,12 +39,15 @@ Table of Contents
 
 	README.md:		this file
 	screen.c:		contains screen manipulation functions
-	screen.h:		contains screen function declarations and related constants
-	testscreen.c:	contains main function
+	screen.h:		contains screen.c function declarations and related constants
+	testscreen.c:	contains codes for testing screen.c
 	makefile:		compiles the program
 	comm.c:			contains client-sever communication functions
-	comm.h:			contains comm function declarations and related constants
-	testcurl.c:		test communication functions
+	comm.h:			contains comm.c function declarations and related constants
+	testcurl.c:		tests communication functions
+	sound.c:		contains manipulation functions for .wav file
+	sound.h:		contains sound.c function declarations and related constants
+	test.php:		contains php functions
 
 5. Copyright and licensing information
 	This application follows GPLv2 license

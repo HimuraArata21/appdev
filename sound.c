@@ -2,12 +2,15 @@
 #include <math.h>
 #include "sound.h"
 #include "screen.h"
+#include "comm.h"
 
 WAVheader readwavhdr(FILE *fp)	{
 	WAVheader myh;
 	fread(&myh, sizeof(myh), 1, fp);
 	return myh;
 }
+
+//this function will print out all of the following detail of the .wav file
 
 void displayWAVhdr(WAVheader h)	{
 	printf("chunk ID: ");
@@ -18,7 +21,7 @@ void displayWAVhdr(WAVheader h)	{
 	printf("Sample rate: %d\n", h.sampleRate);
 	printf("Block align: %d\n", h.blockAlign);
 	printf("Bits per sample: %d\n", h.bitsPerSample);
-	// ... to be continued
+	//to be continued
 }
 
 void wavdata(WAVheader h, FILE *fp)	{
@@ -30,6 +33,8 @@ void wavdata(WAVheader h, FILE *fp)	{
 
 	short samples[500];	//to read 500 samples from wav file
 	int peaks=0, flag=0;
+	double max = 0.0;	//set the maximum decbel
+	char postdata[100];
 	for(int i=0; i<160; i++)	{
 		fread(samples, sizeof(samples), 1, fp);
 		double sum = 0.0;	//accumulate the sum
@@ -40,7 +45,10 @@ void wavdata(WAVheader h, FILE *fp)	{
 #ifdef SDEBUG
 		printf("db[%d] = %f\n", i+1, 20*log10(re));
 #else
-		//displaybar for re value
+		//find out the maximum decibel
+		if(20*log10(re)>max)
+			max = 20*log10(re);
+		//display for re value
 		if(20*log10(re)>60)	{
 			setfgcolor(RED);
 			if(flag == 0)	{
@@ -55,12 +63,18 @@ void wavdata(WAVheader h, FILE *fp)	{
 		drawbar(i+1, (int)20*log10(re)/3);
 #endif
 	}
+	//print out the following detail
 	gotoXY(1,1);
 	printf("Sample Rate: %d\n", h.sampleRate);
 	gotoXY(1,75);
 	printf("Duration: %f s\n", (float)h.subchunk2Size/h.byteRate);
 	gotoXY(1, 150);
 	printf("Peaks: %d\n", peaks);
+	gotoXY(2, 1);
+	printf("Maximum: %f\n", max);
 
+	//send data to PHP program
+	sprintf(postdata, "peaks=%d&max=%f\n", peaks, max);
+	senddata(URL, postdata);
 }
 //end of file

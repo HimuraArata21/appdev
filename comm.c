@@ -7,7 +7,7 @@
 // In order to link to libcurl functions, you need to put "-lcurl"
 // in linking command.
 
-void senddata (char *postdata, char *url){
+void senddata (char *url, char *postdata){
     CURL *curl;
     CURLcode res;
 

@@ -15,6 +15,6 @@ clean :
 
 #archiving rule
 zip :
-	tar cf appdev.tar *.c *.h makefile
+	tar cf screen.tar *.c *.h makefile
 
 

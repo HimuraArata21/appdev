@@ -56,7 +56,7 @@ void drawbar(int col, int height)	{
 	}
 }
 
-/*void drawrect(int row, int col, int height, int width)	{
+void drawrect(int row, int col, int height, int width)	{
 	int i, j;	//loop control variables
 	for (i = row; i<row+height; i++)	{
 		for(j=col; j<col+width; j++)	{
@@ -69,7 +69,7 @@ void drawbar(int col, int height)	{
 		}
 		printf("\n");
 	}
-}*/
+}
 
 Position getscreensize(void)	{
 	Position p;
